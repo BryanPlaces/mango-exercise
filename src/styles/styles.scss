@@ -1,7 +1,7 @@
 .range-wrapper {
   position: relative;
   width: 100%;
-  height: 10px;
+  height: 7px;
   background-color: #ddd;
   border-radius: 4px;
   cursor: pointer;
@@ -9,11 +9,12 @@
   align-items: center;
 }
 
-.prueba {
+.range-container {
   display: flex;
   align-items: center;
   padding: 10px 0;
   gap: 20px;
+  height: 40px;
 }
 
 .slider {
@@ -26,8 +27,8 @@
 .slider-pointer {
   position: absolute;
   transform: translateX(-50%);
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   background-color: #3498db;
   border-radius: 50%;
   cursor: pointer;
@@ -48,7 +49,6 @@
   text-align: center;
 }
 
-/* Estilos por defecto para el input de tipo number */
 input[type="number"] {
   padding: 8px;
   font-size: 16px;
@@ -58,7 +58,6 @@ input[type="number"] {
   width: 7%;
 }
 
-/* Estilo adicional cuando el input está enfocado */
 input[type="number"]:focus {
   border-color: #007bff;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);

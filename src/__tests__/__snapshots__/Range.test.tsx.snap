@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Range Component renders Range component ussing [min, max] 1`] = `
+<div
+  class="range-container"
+>
+  <label
+    class="range-label"
+  >
+    0
+  </label>
+  <div
+    class="range-wrapper"
+  >
+    <div
+      class="slider-pointer"
+      style="left: 0%;"
+    />
+    <div
+      class="slider"
+      style="left: 0%; width: 100%;"
+    />
+    <div
+      class="slider-pointer"
+      style="left: 100%;"
+    />
+  </div>
+  <label
+    class="range-label"
+  >
+    100
+  </label>
+</div>
+`;
+
+exports[`Range Component renders Range component ussing the allowedValues 1`] = `
+<div
+  class="range-container"
+>
+  <label
+    class="range-label"
+  >
+    1.99
+  </label>
+  <div
+    class="range-wrapper"
+  >
+    <div
+      class="slider-pointer"
+      style="left: 0%;"
+    />
+    <div
+      class="slider"
+      style="left: 0%; width: 100%;"
+    />
+    <div
+      class="slider-pointer"
+      style="left: 100%;"
+    />
+  </div>
+  <label
+    class="range-label"
+  >
+    70.99
+  </label>
+</div>
+`;
+
+exports[`Slider Component renders Slider component 1`] = `
+<div
+  class="range-container"
+>
+  <label
+    class="range-label"
+  >
+    0
+  </label>
+  <div
+    class="range-wrapper"
+  >
+    <div
+      class="slider-pointer"
+      style="left: 0%;"
+    />
+    <div
+      class="slider"
+      style="left: 0%; width: 100%;"
+    />
+    <div
+      class="slider-pointer"
+      style="left: 100%;"
+    />
+  </div>
+  <label
+    class="range-label"
+  >
+    100
+  </label>
+</div>
+`;

@@ -1,10 +1,11 @@
-import { useRange } from "./useRange";
+import { useMinMaxData, useAllowedValues } from "./useData";
 import { useSlider } from "./useSlider";
 import { useSliderDrag } from "./useSliderDrag";
 import { useInputRange } from "./useInputRange";
 
 export {
-  useRange,
+  useMinMaxData,
+  useAllowedValues,
   useSlider,
   useSliderDrag,
   useInputRange

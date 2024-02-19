@@ -3,53 +3,54 @@
 import React from 'react';
 import { useSlider, useSliderDrag } from '../hooks';
 import InputRange from './InputRange';
-import './../styles/styles.css'
+import './../styles/styles.scss'
 
 interface RangeProps {
-  initialMin: number;
-  initialMax: number;
-  step: number;
+  initialMin?: number;
+  initialMax?: number;
+  step?: number;
   useDecimals?: boolean;
+  allowedValues?: number[];
 }
 
-const Range = ({ initialMin, initialMax, step, useDecimals } : RangeProps) => {
+const Range = ({ initialMin, initialMax, step, useDecimals, allowedValues } : RangeProps) => {
 
   const {
     sliderRef,
     min,
     max,
-    minSlider,
-    maxSlider,
-    leftSliderPointer,
-    rightSliderPointer,
-    sliderWidth,
+    minSelectedRange,
+    maxSelectedRange,
+    leftStylePointer,
+    rightStylePointer,
+    rangeStyleWidth,
     handleMinChange,
     handleMaxChange,
-    handleSliderChange
-  } = useSlider({initialMin, initialMax, step, useDecimals});
+    handleRightSliderChange,
+    handleLeftSliderChange
+  } = useSlider({initialMin, initialMax, step, allowedValues});
 
-  const { handleMouseDown } = useSliderDrag(handleSliderChange);
+  const { handleMouseDown: handleMouseDownRight } = useSliderDrag(handleRightSliderChange);
+  const { handleMouseDown: handleMouseDownLeft } = useSliderDrag(handleLeftSliderChange);
 
+  const showInputs = allowedValues && allowedValues.length ? false : true;
 
   return (
     <>
-      <div className='range-test'>
-        <div className='prueba'>
+        <div className='range-container'>
 
-          <InputRange id={ "minInput" } type={ "number" } value={ min } onChange={ handleMinChange } />
+          <InputRange id={"minInput"} type={"number"} onlyLabel={showInputs} value={min} onChange={handleMinChange} useDecimals={useDecimals}/>
 
-          <div ref={sliderRef} className='range-wrapper' onMouseDown={ handleSliderChange } >
-            <div className='slider-pointer' style={{ left: `${leftSliderPointer}%` }} onMouseDown={handleMouseDown} ></div>
-            <div className='slider' style={{ left: `${leftSliderPointer}%`, width: `${sliderWidth}%` }} ></div>
-            <div className='slider-pointer' style={{ left: `${rightSliderPointer}%` }} onMouseDown={handleMouseDown} ></div>
+          <div ref={sliderRef} className='range-wrapper' >
+            <div className='slider-pointer' style={{ left: `${leftStylePointer}%` }} onMouseDown={ handleMouseDownLeft } ></div>
+            <div className='slider' style={{ left: `${leftStylePointer}%`, width: `${rangeStyleWidth}%` }} ></div>
+            <div className='slider-pointer' style={{ left: `${rightStylePointer}%` }} onMouseDown={ handleMouseDownRight } ></div>
           </div>
 
-          <InputRange id={ "maxInput" } type={ "number" } value={ max } onChange={ handleMaxChange }/>
+          <InputRange id={"maxInput"} type={"number"} onlyLabel={showInputs} value={max} onChange={handleMaxChange} useDecimals={useDecimals}/>
         </div>
-      </div>
 
-
-      <p style={{ textAlign: 'center', marginTop: '10px' }}>Rango: {minSlider} - {maxSlider}</p>
+      <p style={{ textAlign: 'center', marginTop: '10px' }}>Rango: {minSelectedRange} - {maxSelectedRange}</p>
     </>
   );
 };
